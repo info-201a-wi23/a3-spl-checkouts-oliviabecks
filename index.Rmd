@@ -7,30 +7,33 @@ output: html_document
 
 An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
 
+I chose to analyze the dataset containing all the items checked out in 2022-2023. I will be specifically analyzing Sally Rooney's books: *Normal People*, *Conversations With Friends*, and *Beautiful World, Where Are You.* Sally Rooney is an Irish author and screenwriter whose books have gained immense popularity since Hulu's adaptation of *Normal People.* I have read two of her books so I wanted to analyze them to see their checkout popularity in 2022 by determining which months Rooney had the best and worst number of check outs and what publisher resulted in the most check outs. I also wanted to compare the three books to each other to see which is the the most popular and what the average number of checkouts were for the top book compared to the others. I'm interested in analyzing Sally Rooney because I have really enjoyed her books and would like to know if her third book is worth reading. If it is more popular than the other two and gaining in popularity, it would compel me to read it!
+
 ### Summary Information
+```{r summary_info, echo=FALSE, message=FALSE, warning=FALSE}
+    source("summary.R")
+```
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+According to the Seattle Public Library dataset, Sally Rooney's book with the most checkouts in 2022 was *`r top_book`*. This book had an average of `r avg_checkouts_beautiful_world` checkouts every month and made up `r book_prop_percent` percent of Rooney's total checkouts for the year. The month her books as a whole had the most checkouts, `r highest_month_checkouts`, was `r highest_month`, and the month her books as a whole had the lowest number of checkouts, `r lowest_month_checkouts`, was `r lowest_month`.
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
 - Who collected/published the data?  
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
+- How was the data collected or generated? 
 - Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
+- What, if any, ethical questions do you need to consider when working with this data?
 - What are possible limitations or problems with this data?   (at least 200 words)
 
+The data set was collected by The Seattle Public Library and published by Seattle Open Data. It is also displayed on Legrady's art installation at the library for customers to view. The data was collected to help predict which books are least likely to be checked out in order for the library to utilize premium shelf space for books in higher demand as it changes due to seasonal, social, political, and cultural reasons. The data is also publicly known to generate economic opportunity for individuals and companies, and to improve public understanding of city operations and other information concerning their communities. The data is collected from designed statistical and algorithmic software that maps the flow of data received from the library's Information Technology center. They also received previous data from the Legrady artwork data archives, and digital purchases from digital libraries: OverDrive, hoopla, Freegal, and RBDigital. 
 
-### First Trends Over Time Chart
+The data set consists of the book's usage class (physical or digital), how the book was checked out, the medium of the book (audiobook, ebook, physical copy), the year and month the book was checked out in, the number of checkouts for the book that month, the title of the book, the book's IBSN number, the author, the subject of the book, the publisher, and the publication year. The data does not appear to violate customer privacy as it does not collect their data, only information about the books. But if the library was collecting customer data, this would be an ethical question to consider. Otherwise, I do not think there are any ethical questions for this data set because the data is collected straight from the source/transaction and sent directly to the library's Information Technology Center leaving no room to question how it is collected, stored, and exchanged. And, each book is pre categorized into the subject, title, author, material type, etc. so the information system only has to read these labels, not compute or analyze the book itself to create results. 
+
+One possible problem when working with this data set is that there are missing/blank data values. For instance some of the books have missing authors, IBSN numbers, or subject descriptions. This is mostly seen in the older checkout dates because of the historical archive, but can cause some problems when trying to analyze the data. Having missing data values essentially makes that book unusable for analysis which then results in skewed results. 
+
+
+### First Trends Over Time Chart - three books checkout numbers over the year
 
 Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
@@ -48,9 +51,9 @@ When we say "clear" or "human readable" titles and labels, that means that you s
 Here's an example of how to run an R script inside an RMarkdown file:
 
 ``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
-```
+``````
 
-### Second Trends Over Time Chart
+### Second Trends Over Time Chart - material type total checkouts over time
 
 Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
@@ -68,9 +71,9 @@ When we say "clear" or "human readable" titles and labels, that means that you s
 Here's an example of how to run an R script inside an RMarkdown file:
 
 ``````{r, echo = FALSE, code = readLines("chart2_example.R")}
-```
+``````
 
-### Your Choice
+### Your Choice - bar chart of most common publishers
 
 The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
 
@@ -81,6 +84,6 @@ The last chart is up to you. It could be a line plot, scatter plot, histogram, b
 Here's an example of how to run an R script inside an RMarkdown file:
 
 ``````{r, echo = FALSE, code = readLines("chart2_example.R")}
-```
+``````
 
 
