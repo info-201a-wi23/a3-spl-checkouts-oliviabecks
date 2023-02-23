@@ -1,6 +1,7 @@
 
 library(dplyr)
 library(tidyverse)
+library(here)
 
 #load data
 spl_df <- read.csv("~/Desktop/info201/a3-spl-checkouts-oliviabecks/2022-2023-All-Checkouts-SPL-Data.csv")
@@ -12,6 +13,7 @@ rooney_df <- mutate_all(rooney_df, funs(tolower))
 rooney_df$Title <- gsub(".*beautiful world, where are you.*", "Beautiful World, Where Are You", rooney_df$Title)
 rooney_df$Title <- gsub(".*normal people.*", "Normal People", rooney_df$Title)
 rooney_df$Title <- gsub(".*conversations with friends.*", "Conversations With Friends", rooney_df$Title)
+rooney_df$Title <- gsub(".*gente normal.*", "Normal People", rooney_df$Title)
 rooney_df <- transform(rooney_df, Checkouts = as.numeric(Checkouts))
 rooney_df <- transform(rooney_df, CheckoutYear = as.numeric(CheckoutYear))
 rooney_df <- transform(rooney_df, CheckoutMonth = as.numeric(CheckoutMonth))
@@ -21,6 +23,11 @@ most_popular <- rooney_df %>% group_by(Title) %>% summarise(total_checkouts = su
 top_book <- most_popular %>% filter(total_checkouts == max(total_checkouts)) %>% pull(Title)
 
 top_book_checkouts <- most_popular %>% filter(total_checkouts == max(total_checkouts)) %>% pull(total_checkouts)
+
+# proportion of checkouts this book had
+most_popular <- rooney_df %>% group_by(Title) %>% summarise(total_checkouts = sum(Checkouts)) 
+total_checkouts <- most_popular %>% summarise(total = sum(total_checkouts)) %>% pull(total)
+book_prop_percent <- top_book_checkouts / total_checkouts * 100
 
 # month with most checkouts
 checkouts_per_month <- rooney_df %>% group_by(checkout_date) %>% summarise(total_checkouts = sum(Checkouts))
@@ -41,7 +48,7 @@ avg_checkouts_beautiful_world <- avg_checkouts_df %>% filter(Title == "Beautiful
 
 # create summary list
 summary_info <- list()
-summary_info$most_popular_book <- most_popular_book
+summary_info$most_popular_book <- top_book
 summary_info$month_most_checkouts <- highest_month
 summary_info$month_most_checkouts_num <- highest_month_checkouts
 summary_info$month_least_checkouts <- lowest_month
