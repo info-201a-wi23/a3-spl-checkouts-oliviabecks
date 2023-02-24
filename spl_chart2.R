@@ -32,4 +32,11 @@ ggplot(checkouts_per_month_material) +
   labs(title = "Sally Rooney 2022 SPL Checkouts by Book Type",
        x = "Date",
        y = "Number of Checkouts") +
-  labs(color='Book Type') 
+  labs(color= 'Book Type') +
+  scale_color_manual(labels = c("AudioBook", "eBook"),
+                     values = c("salmon", "turquoise3"))
+
+
+
+
+
