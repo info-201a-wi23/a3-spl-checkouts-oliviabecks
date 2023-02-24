@@ -32,4 +32,12 @@ ggplot(checkouts_per_publisher, aes(x = Publisher, y = total_checkouts, fill = P
        x = "Publisher",
        y = "Number of Checkouts") + 
   theme(axis.text.x = element_text(angle = 35, hjust = 1)) +
-  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) 
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
+scale_color_manual(labels = c("Books on Tape", "Lindhaedt Og Ringhof", "Macmillan Audio", "Macmillan Publishers", "Penguin Randon House", "Random House, inc."),
+                   values = c("salmon", "yellow2", "green3", "turquoise3", "royalblue", "orchid1"))
+
+
+
+
+
+
