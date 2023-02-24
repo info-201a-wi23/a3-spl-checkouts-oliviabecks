@@ -30,7 +30,7 @@ checkouts_per_publisher <- transform(checkouts_per_publisher, total_checkouts = 
 # graph
 ggplot(checkouts_per_publisher, aes(x = Publisher, y = total_checkouts, fill = Publisher)) + 
   geom_bar(stat = "identity") +
-  labs(title = "Sally Rooney 2022 SPL Checkouts by Publisher",
+  labs(title = "Sally Rooney Total 2022 SPL Checkouts by Publisher",
        x = "Publisher",
        y = "Number of Checkouts") + 
   theme(axis.text.x = element_text(angle = 35, hjust = 1)) +
