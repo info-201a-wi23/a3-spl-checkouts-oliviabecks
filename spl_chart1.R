@@ -32,6 +32,6 @@ ggplot(checkouts_per_month_title) +
        x = "Date",
        y = "Number of Checkouts") +
        labs(color='Book Title') +
-  scale_color_manual(labels = c("Beautiful World, Where Are You", "Conversations With Friends", "Normal                                  People"),
+  scale_color_manual(labels = c("Beautiful World, Where Are You", "Conversations With Friends", "Normal People"),
                      values = c("red2", "blue2", "green4"))
 
