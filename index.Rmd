@@ -17,13 +17,6 @@ According to the Seattle Public Library data set, Sally Rooney's book with the m
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated? 
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?
-- What are possible limitations or problems with this data?   (at least 200 words)
-
 The data set was collected by The Seattle Public Library and published by Seattle Open Data. It is also displayed on Legrady's art installation at the library for customers to view in real time. The data was collected to help predict which books are least likely to be checked out in order for the library to utilize premium shelf space for books in higher demand as it changes due to seasonal, social, political, and cultural reasons. The data is also publicly known to generate economic opportunity for individuals and companies, and to improve public understanding of city operations and other information concerning their communities. The data is collected from designed statistical and algorithmic software that maps the flow of data received from the library's Information Technology center. They also received previous data from the Legrady artwork data archives, and digital purchases from digital libraries: OverDrive, hoopla, Freegal, and RBDigital. 
 
 The data set originally consists of 12 columns: book's usage class (physical or digital), how the book was checked out, the medium of the book (audiobook, ebook, physical copy), the year and month the book was checked out in, the number of checkouts for the book that month, the title of the book, the book's IBSN number, the author, the subject of the book, the publisher, and the publication year. The SPL 2022-2023 checkout data set contains 2,757014 observations but the data set only containing Sally Rooney's books has 109 observations. The data does not appear to violate customer privacy as it does not collect their data, only information about the books. But if the library was collecting customer data, this would be an ethical question to consider. Otherwise, I do not think there are any ethical questions for this data set because the data is collected straight from the source/transaction and sent directly to the library's Information Technology Center leaving no room to question how it is collected, stored, and exchanged. And, each book is pre categorized into the subject, title, author, material type, etc. so the information system only has to read these labels, not compute or analyze the book itself to create results. 
