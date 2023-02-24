@@ -31,5 +31,7 @@ ggplot(checkouts_per_month_title) +
   labs(title = "Sally Rooney 2022 SPL Checkouts by Book",
        x = "Date",
        y = "Number of Checkouts") +
-       labs(color='Book Title') 
+       labs(color='Book Title') +
+  scale_color_manual(labels = c("Beautiful World, Where Are You", "Conversations With Friends", "Normal                                  People"),
+                     values = c("red2", "blue2", "green4"))
 
