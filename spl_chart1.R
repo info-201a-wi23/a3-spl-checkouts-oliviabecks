@@ -1,13 +1,14 @@
 
-#load data
+#load libraries
 library("dplyr")
 library("ggplot2")
 
+#load data
 spl_df <- read.csv("~/Desktop/info201/a3-spl-checkouts-oliviabecks/2022-2023-All-Checkouts-SPL-Data.csv")
-
 spl_df <- spl_df %>% mutate(checkout_date = paste0(CheckoutYear, "-", CheckoutMonth, "-01")) 
 spl_df$checkout_date <- as.Date(spl_df$checkout_date, "%Y-%m-%d")
 
+# create rooney df
 rooney_df <- spl_df %>% filter(str_detect(Creator, "Sally Rooney"))
 rooney_df <- spl_df %>% filter(str_detect(Creator, "Sally Rooney"))
 rooney_df <- mutate_all(rooney_df, funs(tolower))
@@ -20,6 +21,7 @@ rooney_df <- transform(rooney_df, Checkouts = as.numeric(Checkouts))
 # rooney_df <- transform(rooney_df, CheckoutMonth = as.numeric(CheckoutMonth))
 rooney_df$checkout_date <- as.Date(rooney_df$checkout_date, "%Y-%m-%d")
 
+# group checkouts by book and date
 checkouts_per_month_title <- rooney_df %>% group_by(checkout_date, Title) %>% summarise(total_checkouts = sum(Checkouts))
 
 # graph
